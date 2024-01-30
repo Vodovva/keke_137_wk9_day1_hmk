@@ -1,24 +1,17 @@
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import TaskCard from './TaskCard';
+import { Task } from '../types';
 
 
-type Task = {
-    id: number,
-    name: string,
-    description: string,
-    dateCreated: Date,
-    completed: boolean,
-    dueDate?: Date
-}
 
 type TaskDisplayProps = {
     tasks: Task[]
 }
 
 export default function TaskDisplay({ tasks }: TaskDisplayProps) {
-    const completedTasks = tasks.filter( t => t.completed)
-    const pendingTasks = tasks.filter(t => !t.completed)
+    const completedTasks = tasks.filter( t => t.completed);
+    const pendingTasks = tasks.filter(t => !t.completed);
     return (
         <>
             <Row>
@@ -36,5 +29,3 @@ export default function TaskDisplay({ tasks }: TaskDisplayProps) {
         </>
     )
 }
-
-
